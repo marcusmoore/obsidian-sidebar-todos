@@ -1,6 +1,6 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
 
-export const VIEW_TYPE_EXAMPLE = "example-view";
+export const VIEW_SIDEBAR_TODOS = "example-view";
 
 export class ExampleView extends ItemView {
   constructor(leaf: WorkspaceLeaf) {
@@ -8,7 +8,7 @@ export class ExampleView extends ItemView {
   }
 
   getViewType() {
-    return VIEW_TYPE_EXAMPLE;
+    return VIEW_SIDEBAR_TODOS;
   }
 
   getDisplayText() {
