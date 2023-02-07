@@ -2,7 +2,7 @@ import { ItemView, WorkspaceLeaf } from "obsidian";
 
 export const VIEW_SIDEBAR_TODOS = "example-view";
 
-export class ExampleView extends ItemView {
+export class TodoView extends ItemView {
   constructor(leaf: WorkspaceLeaf) {
     super(leaf);
   }
@@ -18,7 +18,7 @@ export class ExampleView extends ItemView {
   async onOpen() {
     const container = this.containerEl.children[1];
     container.empty();
-    container.createEl("h4", { text: "Example view" });
+    container.createEl("h4", { text: "Hello there...I'm over here..." });
   }
 
   async onClose() {

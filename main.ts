@@ -1,4 +1,5 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { VIEW_SIDEBAR_TODOS, TodoView } from './view';
 
 // Remember to rename these classes and interfaces!
 
@@ -16,10 +17,15 @@ export default class MyPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
+		this.registerView(
+			VIEW_SIDEBAR_TODOS,
+			(leaf) => new TodoView(leaf)
+		);
+
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('dice', 'Activate View', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
-			new Notice('Hi there');
+			this.activateView();
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
@@ -79,7 +85,7 @@ export default class MyPlugin extends Plugin {
 	}
 
 	onunload() {
-
+	    this.app.workspace.detachLeavesOfType(VIEW_SIDEBAR_TODOS);
 	}
 
 	async loadSettings() {
@@ -88,6 +94,19 @@ export default class MyPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
+	}
+
+	async activateView() {
+		this.app.workspace.detachLeavesOfType(VIEW_SIDEBAR_TODOS);
+
+		await this.app.workspace.getRightLeaf(false).setViewState({
+			type: VIEW_SIDEBAR_TODOS,
+			active: true,
+		});
+
+		this.app.workspace.revealLeaf(
+			this.app.workspace.getLeavesOfType(VIEW_SIDEBAR_TODOS)[0]
+		);
 	}
 }
 
