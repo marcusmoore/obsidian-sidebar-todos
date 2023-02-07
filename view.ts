@@ -18,7 +18,15 @@ export class TodoView extends ItemView {
   async onOpen() {
     const container = this.containerEl.children[1];
     container.empty();
-    container.createEl("h4", { text: "Hello there...I'm over here..." });
+    // container.createEl("h4", { text: "Hello there...I'm over here..." });
+    
+    const rootEl = document.createElement('div');
+
+    rootEl.createDiv()
+      .createSpan({cls: 'title'})
+      .setText("Oh hi...");
+
+    container.appendChild(rootEl);
   }
 
   async onClose() {
