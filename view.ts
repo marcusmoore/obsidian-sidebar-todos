@@ -19,33 +19,34 @@ export class TodoView extends ItemView {
 	}
 
 	async onOpen() {
-
-		let path = app.workspace.getActiveFile()?.path
-
-		const page = api?.page(path);
+		const container = this.containerEl.children[1];
+		container.empty();
+		container.createEl("h4", {text: ""});
 
 		const rootEl = document.createElement('div');
 
+		const path = app.workspace.getActiveFile()?.path
+
+		const page = api?.page(path);
+
+		const tasks = page?.file.tasks.where(t => !t.completed);
+
+		if (tasks?.length === 0) {
+			rootEl.createDiv()
+				.createSpan({cls: 'title'})
+				.setText("No uncompleted tasks");
+
+			container.appendChild(rootEl);
+
+			return;
+		}
+
 		api?.taskList(
-			page?.file.tasks.where(t => !t.completed),
+			tasks,
 			false,
 			rootEl,
 			this
 		);
-
-		this.containerEl.children[1].appendChild(rootEl);
-	}
-
-	private writeDefaultText() {
-		const container = this.containerEl.children[1];
-		container.empty();
-		container.createEl("h4", {text: "Hello there...I'm over here..."});
-
-		const rootEl = document.createElement('div');
-
-		rootEl.createDiv()
-			.createSpan({cls: 'title'})
-			.setText("Oh hi...");
 
 		container.appendChild(rootEl);
 	}
