@@ -1,5 +1,6 @@
 import {ItemView, WorkspaceLeaf} from "obsidian";
 import {getAPI} from "obsidian-dataview";
+import {MarkdownRenderChild} from "obsidian";
 
 const api = getAPI();
 
@@ -20,11 +21,23 @@ export class TodoView extends ItemView {
 
 	async onOpen() {
 
-		// const page = api.page('Untitled.md');
-		//
-		// console.log(page);
-		// console.log(page.file);
-		this.writeDefaultText();
+		const page = api?.page('Untitled.md');
+
+		const rootEl = document.createElement('div');
+
+		// const taskComponent = new MarkdownRenderChild(rootEl);
+
+		// https://github.com/RafaelGB/obsidian-db-folder/blob/f14529049933c0802c41366778dbec38858f4d7c/src/components/cellTypes/TaskCell.tsx#L36
+		// https://github.com/blacksmithgu/obsidian-dataview/discussions/1351
+		api?.taskList(
+			page?.file.tasks,
+			false,
+			rootEl,
+			this
+		)
+
+		const container = this.containerEl.children[1];
+		container.appendChild(rootEl)
 	}
 
 	private writeDefaultText() {
