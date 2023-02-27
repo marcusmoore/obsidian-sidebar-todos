@@ -27,7 +27,7 @@ export class TodoView extends ItemView {
 		const rootEl = document.createElement('div');
 
 		api?.taskList(
-			page?.file.tasks,
+			page?.file.tasks.where(t => !t.completed),
 			false,
 			rootEl,
 			this
