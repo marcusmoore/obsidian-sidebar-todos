@@ -20,20 +20,20 @@ export class TodoView extends ItemView {
 
 	async onOpen() {
 
-		const page = api?.page('Untitled.md');
+		let path = app.workspace.getActiveFile()?.path
+
+		const page = api?.page(path);
 
 		const rootEl = document.createElement('div');
 
-		// https://github.com/RafaelGB/obsidian-db-folder/blob/f14529049933c0802c41366778dbec38858f4d7c/src/components/cellTypes/TaskCell.tsx#L36
-		// https://github.com/blacksmithgu/obsidian-dataview/discussions/1351
 		api?.taskList(
 			page?.file.tasks,
 			false,
 			rootEl,
 			this
-		)
+		);
 
-		this.containerEl.children[1].appendChild(rootEl)
+		this.containerEl.children[1].appendChild(rootEl);
 	}
 
 	private writeDefaultText() {
