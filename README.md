@@ -3,7 +3,7 @@
 Puts the current note's todos in the sidebar.
 
 # Todo
-- [ ] Only show uncompleted todos
+- [x] Only show uncompleted todos
 - [x] Reference the current note dynamically
 - [ ] Have the note update when a todo is updated
   - `useEffect()` as mentioned in the db-folder links below? 
