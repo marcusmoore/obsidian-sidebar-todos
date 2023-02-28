@@ -1,4 +1,4 @@
-import {App, Editor, MarkdownView, Modal, Plugin} from 'obsidian';
+import {Plugin} from 'obsidian';
 import {VIEW_SIDEBAR_TODOS, TodoView} from './view';
 
 // Remember to rename these classes and interfaces!
