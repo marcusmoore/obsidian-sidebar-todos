@@ -27,6 +27,10 @@ export class TodoView extends ItemView {
 
 		const path = app.workspace.getActiveFile()?.path
 
+		if (!path) {
+			return;
+		}
+
 		const page = api?.page(path);
 
 		const tasks = page?.file.tasks.where(t => !t.completed);
