@@ -82,6 +82,15 @@ export default class MyPlugin extends Plugin {
 
 		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
 		// this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000));
+
+		this.registerEvent(
+			this.app.vault.on('modify', (file) => {
+				if (file.path === this.app.workspace.getActiveFile()?.path) {
+					// reload the view without taking away focus from the editor
+					this.activateView(false);
+				}
+			})
+		)
 	}
 
 	onunload() {
@@ -96,12 +105,12 @@ export default class MyPlugin extends Plugin {
 		await this.saveData(this.settings);
 	}
 
-	async activateView() {
+	async activateView(active = true) {
 		this.app.workspace.detachLeavesOfType(VIEW_SIDEBAR_TODOS);
 
 		await this.app.workspace.getRightLeaf(false).setViewState({
 			type: VIEW_SIDEBAR_TODOS,
-			active: true,
+			active: active,
 		});
 
 		this.app.workspace.revealLeaf(
