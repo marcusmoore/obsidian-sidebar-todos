@@ -92,11 +92,11 @@ export default class MyPlugin extends Plugin {
 			})
 		)
 
-		this.registerEvent(
-			this.app.workspace.on('active-leaf-change', (leaf) => {
-				this.activateView(false);
-			})
-		)
+		// this.registerEvent(
+		// 	this.app.workspace.on('active-leaf-change', (leaf) => {
+		// 		this.activateView(false);
+		// 	})
+		// )
 	}
 
 	onunload() {
