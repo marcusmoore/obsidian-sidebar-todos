@@ -8,13 +8,10 @@ export default class SidebarTodos extends Plugin {
 			(leaf) => new TodoView(leaf)
 		);
 
-		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Open Todos', (evt: MouseEvent) => {
+		this.addRibbonIcon('dice', 'Open Todos', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			this.activateView();
 		});
-		// Perform additional things with the ribbon
-		ribbonIconEl.addClass('my-plugin-ribbon-class');
 
 		this.registerEvent(
 			this.app.vault.on('modify', (file) => {
