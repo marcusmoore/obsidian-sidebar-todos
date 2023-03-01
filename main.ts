@@ -8,7 +8,7 @@ export default class SidebarTodos extends Plugin {
 			(leaf) => new TodoView(leaf)
 		);
 
-		this.addRibbonIcon('dice', 'Open Todos', (evt: MouseEvent) => {
+		this.addRibbonIcon('list-checks', 'Open Todos', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			this.activateView();
 		});

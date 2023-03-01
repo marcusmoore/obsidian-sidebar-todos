@@ -20,6 +20,10 @@ export class TodoView extends ItemView {
 		return "Sidebar Todos";
 	}
 
+	getIcon() {
+		return 'list-checks';
+	}
+
 	async onOpen() {
 		this.writeContent();
 	}

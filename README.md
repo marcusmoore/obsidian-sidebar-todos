@@ -9,7 +9,7 @@ Puts the current note's todos in the sidebar.
 - [x] Have the side panel update when file is changed
 - [ ] Have the note update when a todo is updated
 - [ ] Figure out panel contents flickering (at least when trying setInterval). The GitHub discussion might be relevant.
-- [ ] [Update icon](https://marcus.se.net/obsidian-plugin-docs/user-interface/icons)
+- [x] [Update icon](https://marcus.se.net/obsidian-plugin-docs/user-interface/icons)
 
 # References
 - [How obsidian-db-folder writes tasks](https://github.com/RafaelGB/obsidian-db-folder/blob/f14529049933c0802c41366778dbec38858f4d7c/src/components/cellTypes/TaskCell.tsx#L36)
