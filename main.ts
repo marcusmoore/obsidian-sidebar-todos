@@ -20,17 +20,16 @@ export default class MyPlugin extends Plugin {
 		this.registerEvent(
 			this.app.vault.on('modify', (file) => {
 				if (file.path === this.app.workspace.getActiveFile()?.path) {
-					// reload the view without taking away focus from the editor
-					this.activateView(false);
+					this.app.workspace.getLeavesOfType(VIEW_SIDEBAR_TODOS)[0].view.writeContent();
 				}
 			})
 		)
 
-		// this.registerEvent(
-		// 	this.app.workspace.on('active-leaf-change', (leaf) => {
-		// 		this.activateView(false);
-		// 	})
-		// )
+		this.registerEvent(
+			this.app.workspace.on('active-leaf-change', (leaf) => {
+				this.app.workspace.getLeavesOfType(VIEW_SIDEBAR_TODOS)[0].view.writeContent();
+			})
+		)
 	}
 
 	onunload() {
