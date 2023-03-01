@@ -8,7 +8,7 @@ Puts the current note's todos in the sidebar.
 - [x] Write nice message if there are no todos to display
 - [x] Have the side panel update when file is changed
 - [ ] Have the note update when a todo is updated
-- [ ] Figure out panel contents flickering (at least when trying setInterval). The GitHub discussion might be relevant.
+  - [ ] Figure out panel contents flickering (at least when trying setInterval). The GitHub discussion might be relevant.
 - [x] [Update icon](https://marcus.se.net/obsidian-plugin-docs/user-interface/icons)
 
 # References
