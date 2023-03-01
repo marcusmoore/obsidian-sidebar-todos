@@ -43,7 +43,7 @@ export class TodoView extends ItemView {
 
 		const page = api?.page(path);
 
-		const tasks = page?.file.tasks.where(t => !t.completed);
+		const tasks = page?.file.tasks.where((t: { completed: any; }) => !t.completed);
 
 		if (tasks?.length === 0) {
 			rootEl.createDiv()
