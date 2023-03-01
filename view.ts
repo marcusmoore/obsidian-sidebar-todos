@@ -5,7 +5,7 @@ import {SListItem} from "obsidian-dataview/lib/data-model/serialized/markdown";
 
 const api = getAPI();
 
-export const VIEW_SIDEBAR_TODOS = "example-view";
+export const VIEW_SIDEBAR_TODOS = "sidebar-todos-view";
 
 export class TodoView extends ItemView {
 	constructor(leaf: WorkspaceLeaf) {
@@ -17,7 +17,7 @@ export class TodoView extends ItemView {
 	}
 
 	getDisplayText() {
-		return "Example view";
+		return "Sidebar Todos";
 	}
 
 	async onOpen() {

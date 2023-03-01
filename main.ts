@@ -1,8 +1,7 @@
 import {Plugin} from 'obsidian';
 import {VIEW_SIDEBAR_TODOS, TodoView} from './view';
 
-// Remember to rename these classes and interfaces!
-export default class MyPlugin extends Plugin {
+export default class SidebarTodos extends Plugin {
 	async onload() {
 		this.registerView(
 			VIEW_SIDEBAR_TODOS,
@@ -10,7 +9,7 @@ export default class MyPlugin extends Plugin {
 		);
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Activate View', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('dice', 'Open Todos', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			this.activateView();
 		});
