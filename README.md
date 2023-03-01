@@ -6,7 +6,7 @@ Puts the current note's todos in the sidebar.
 - [x] Only show uncompleted todos
 - [x] Reference the current note dynamically
 - [x] Write nice message if there are no todos to display
-- [ ] Have the side panel update when file is changed
+- [x] Have the side panel update when file is changed
 - [ ] Have the note update when a todo is updated
   - `useEffect()` as mentioned in the db-folder links below?
 - [ ] [Update icon](https://marcus.se.net/obsidian-plugin-docs/user-interface/icons)
