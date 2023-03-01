@@ -1,5 +1,7 @@
 import {ItemView, WorkspaceLeaf} from "obsidian";
 import {getAPI} from "obsidian-dataview";
+import {Grouping} from "obsidian-dataview/lib/data-model/value";
+import {SListItem} from "obsidian-dataview/lib/data-model/serialized/markdown";
 
 const api = getAPI();
 
@@ -50,7 +52,7 @@ export class TodoView extends ItemView {
 		}
 
 		api?.taskList(
-			tasks,
+			tasks as Grouping<SListItem>,
 			false,
 			rootEl,
 			this
