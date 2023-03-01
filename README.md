@@ -8,6 +8,7 @@ Puts the current note's todos in the sidebar.
 - [x] Write nice message if there are no todos to display
 - [x] Have the side panel update when file is changed
 - [x] Have the note update when a todo is updated
+- [ ] Figure out panel contents flickering (at least when trying setInterval). The GitHub discussion might be relevant.
 - [ ] [Update icon](https://marcus.se.net/obsidian-plugin-docs/user-interface/icons)
 
 # References
@@ -16,4 +17,5 @@ Puts the current note's todos in the sidebar.
 - [Obsidian TypeScript API | Obsidian Plugin Developer Docs](https://marcus.se.net/obsidian-plugin-docs/reference/typescript)
 - [Codeblock Reference - Dataview](https://blacksmithgu.github.io/obsidian-dataview/api/code-reference/)
 - [Obsidian Events](https://marcus.se.net/obsidian-plugin-docs/events)
+  - `editor-change` is triggered on every keystroke...
 - [Views | Obsidian Plugin Developer Docs](https://marcus.se.net/obsidian-plugin-docs/user-interface/views)
