@@ -21,7 +21,7 @@ export class TodoView extends ItemView {
 	}
 
 	getIcon() {
-		return 'list-checks';
+		return 'check-square';
 	}
 
 	async onOpen() {
