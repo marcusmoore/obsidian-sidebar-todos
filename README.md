@@ -19,3 +19,4 @@ Puts the current note's todos in the sidebar.
 - [Obsidian Events](https://marcus.se.net/obsidian-plugin-docs/events)
   - `editor-change` is triggered on every keystroke...
 - [Views | Obsidian Plugin Developer Docs](https://marcus.se.net/obsidian-plugin-docs/user-interface/views)
+- [attach a new view to the sidebar - Liam Cain](https://liamca.in/Obsidian/API+FAQ/views/attach+a+new+view+to+the+sidebar)

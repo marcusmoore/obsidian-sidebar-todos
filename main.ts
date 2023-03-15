@@ -8,11 +8,6 @@ export default class SidebarTodos extends Plugin {
 			(leaf) => new TodoView(leaf)
 		);
 
-		this.addRibbonIcon('check-square', 'Open Todos', (evt: MouseEvent) => {
-			// Called when the user clicks the icon.
-			this.activateView();
-		});
-
 		this.registerEvent(
 			this.app.vault.on('modify', (file) => {
 				if (file.path === this.app.workspace.getActiveFile()?.path) {
@@ -26,6 +21,14 @@ export default class SidebarTodos extends Plugin {
 				(this.app.workspace.getLeavesOfType(VIEW_SIDEBAR_TODOS)[0].view as unknown as { writeContent: () => void }).writeContent();
 			})
 		)
+
+		if (this.app.workspace.getLeavesOfType(VIEW_SIDEBAR_TODOS).length) {
+			return;
+		}
+
+		await this.app.workspace.getRightLeaf(false).setViewState({
+			type: VIEW_SIDEBAR_TODOS,
+		});
 	}
 
 	onunload() {
